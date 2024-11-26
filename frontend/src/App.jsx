@@ -1,6 +1,6 @@
 import { useState } from "react";
 import StartPage from "./components/StartPage";
-// import FormStep1 from "./components/FormStep1";
+import FormStep1 from "./components/FormStep1";
 // import FormStep2 from "./components/FormStep2";
 // import FormStep3 from "./components/FormStep3";
 // import Summary from "./components/Summary";
@@ -24,9 +24,9 @@ function App() {
     <FormProvider>
       <div className="App">
         {step > 0 && <ProgressBar step={step} totalSteps={totalSteps + 1} />}
-        {step === 0 && <StartPage onStart={nextStep} />}
-        {/* {step === 1 && <FormStep1 nextStep={nextStep} />}
-        {step === 2 && <FormStep2 nextStep={nextStep} prevStep={prevStep} />}
+        {step === 0 && <StartPage />}
+        {step === 1 && <FormStep1 />}
+        {/*{step === 2 && <FormStep2 nextStep={nextStep} prevStep={prevStep} />}
         {step === 3 && <FormStep3 nextStep={nextStep} prevStep={prevStep} />}
         {step === 4 && <Summary prevStep={prevStep} />} */}
         <div className="button-container">
