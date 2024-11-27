@@ -1,8 +1,5 @@
-import React, { useContext } from "react";
-import { FormContext } from "../contexts/FormContext";
 
-const FormStep3 = () => {
-  const { formData, updateFormData } = useContext(FormContext);
+const FormStep3 = ({formData, updateFormData}) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,10 +16,9 @@ const FormStep3 = () => {
   };
 
   return (
-    <div>
-      <h2>Step 3: ID Details</h2>
-      <form>
+    <>
         <div>
+          <h2>Step 3: ID Details</h2>
           <label>ID Type:</label>
           <select
             name="idType"
@@ -52,8 +48,7 @@ const FormStep3 = () => {
             onChange={handleFileUpload}
           />
         </div>
-      </form>
-    </div>
+    </>
   );
 };
 

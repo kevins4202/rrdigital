@@ -1,4 +1,4 @@
-const StartPage = ({ onStart }) => {
+const StartPage = ({  }) => {
   return (
     <div className="start-page">
       <h1>Welcome to the KYC Form</h1>
