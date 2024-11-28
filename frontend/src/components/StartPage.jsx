@@ -7,10 +7,10 @@ const StartPage = ({ }) => {
       <div className="col-md-6 col-lg-5">
         <div className="card shadow-sm border-0">
           <div className="card-body p-4">
-            <h1 className="card-title text-center mb-4 text-primary">KYC Verification</h1>
+            <h1 className="card-title text-center mb-4 text-primary">Know Your Customer</h1>
 
             <p className="text-center text-muted mb-4">
-              To proceed, we need some information about you to complete the KYC process.
+              To proceed, we need some information about you to complete the process.
               The process is quick and consists of 3 steps:
             </p>
 

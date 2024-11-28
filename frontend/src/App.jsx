@@ -10,22 +10,32 @@ import NavButtons from "./components/NavButtons";
 import { FormContext } from "./contexts/FormContext";
 import { useContext } from "react";
 import "./App.css";
+import { set } from "mongoose";
+import { FolderMinus } from "lucide-react";
 
 function App() {
   const { formData, updateFormData } = useContext(FormContext);
   const [step, setStep] = useState(0); // Step 0 for Start Page
+  const [file, setFile] = useState(null);
+
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   const nextStep = () => {
-    if (step === 1 && (formData.fullName === "" || formData.email === "") ||
+    if (step === 1 && (formData.fullName === "" || formData.email === "" || !emailRegex.test(formData.email)) ||
         step === 2 && (formData.address.street === "" || formData.address.city === "" || formData.address.state === "" || formData.address.postalCode === "" || formData.address.country === "") ||
         step === 3 && (formData.idDetails.idType === "" || formData.idDetails.idNumber === "" || formData.idDetails.idDocument === null)) {
-      alert("Please fill in all fields");
+      alert("Please fill in all fields correctly");
       return;
     } 
     setStep(step + 1);
   }
   const prevStep = () => setStep(step - 1);
   const totalSteps = 3;
+
+  const handleFileUpload = (event) => {
+    const uploadedFile = event.target.files[0]; // Get the selected file
+    setFile(uploadedFile);
+  };
 
   const handleSubmit = () => {
     console.log("Form submitted!");
@@ -38,8 +48,8 @@ function App() {
       {step === 0 && <StartPage />}
       {step === 1 && <FormStep1 formData={formData} updateFormData={updateFormData} />}
       {step === 2 && <FormStep2 formData={formData} updateFormData={updateFormData} />}
-      {step === 3 && <FormStep3 formData={formData} updateFormData={updateFormData} />}
-      {step === 4 && <Summary prevStep={prevStep} />}
+      {step === 3 && <FormStep3 formData={formData} updateFormData={updateFormData} handleFileUpload={handleFileUpload} />}
+      {step === 4 && <Summary setStep={setStep} formData={formData}/>}
       <NavButtons step={step} totalSteps={totalSteps} prevStep={prevStep} nextStep={nextStep} handleSubmit={handleSubmit} />
     </form>
   );

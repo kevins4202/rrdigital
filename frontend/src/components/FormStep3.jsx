@@ -74,6 +74,7 @@ const FormStep3 = ({ formData, updateFormData }) => {
           ID Document
         </label>
         <div className="flex items-center">
+          {formData.idDetails.idDocument ? <p>Uploaded File: {formData.idDetails.idDocument.name}</p> : <p>No file uploaded</p>}
           <input
             type="file"
             id="idDocument"

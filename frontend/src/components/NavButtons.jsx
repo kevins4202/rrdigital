@@ -9,7 +9,7 @@ const NavButtons = ({ step, totalSteps, prevStep, nextStep, handleSubmit}) => {
         onClick={prevStep}
         disabled={step === 0}
       >Back</Button>
-
+      
       {step === totalSteps + 1 ? (
         <Button
           variant="primary"
