@@ -1,13 +1,20 @@
 const express = require('express');
 const app = express();
+const multer = require('multer');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const cors = require('cors');
 app.use(cors());
-
+app.use(express.json());
 app.use(express.static('dist'));
 
 require('dotenv').config();
+const upload = multer({ 
+  storage: multer.memoryStorage(),
+  limits: {
+    fileSize: 5 * 1024 * 1024 
+  }
+});
 
 const { Form } = require('./models/form');
 
@@ -15,6 +22,7 @@ const requestLogger = (request, response, next) => {
   console.log('Method:', request.method)
   console.log('Path:  ', request.path)
   console.log('Body:  ', request.body)
+  console.log('File:  ', request.file)
   console.log('---')
   next()
 }
@@ -43,16 +51,31 @@ app.get('/api/forms/:id', (request, response, next) => {
     .catch(error => next(error));
 });
 
-app.post('/api/forms', (request, response, next) => {
+app.post('/api/forms', upload.single('idDocument'), (request, response, next) => {
   const body = request.body;
+  console.log("Posting form data from index.js:", body);
+  const fileBuffer = request.file.buffer;
+  console.log('File buffer size:', fileBuffer.length);
 
   const form = new Form({
     fullName: body.fullName,
     email: body.email,
     dateOfBirth: body.dateOfBirth,
-    address: body.address,
-    idDetails: body.idDetails,
+    address: {
+      street: body['address.street'],
+      city: body['address.city'],
+      state: body['address.state'],
+      postalCode: body['address.postalCode'],
+      country: body['address.country']
+    },
+    idDetails: {
+      idType: body['idDetails.idType'],
+      idNumber: body['idDetails.idNumber'],
+      idDocument: fileBuffer
+    }
   });
+
+  console.log('Form data:', form);
 
   form.save()
     .then(savedForm => {

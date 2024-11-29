@@ -13,23 +13,31 @@ mongoose.connect(url)
 
   });
 
-const formSchema = new mongoose.Schema({
-  fullName: String,
-  email: String,
-  dateOfBirth: Date,
-  address: {
-    street: String,
-    city: String,
-    state: String,
-    postalCode: String,
-    country: String,
-  },
-  idDetails: {
-    idType: String,
-    idNumber: String,
-    idDocument: Buffer,
-  },
-}, {collection: 'forms'});
+  const formSchema = new mongoose.Schema({
+    fullName: { type: String, required: true },
+    email: { 
+      type: String, 
+      required: true, 
+      unique: true, 
+      match: /.+\@.+\..+/ // Basic email validation
+    },
+    dateOfBirth: { type: String, required: true },
+    address: {
+      street: { type: String, required: true },
+      city: { type: String, required: true },
+      state: { type: String, required: true },
+      postalCode: { 
+        type: Number, 
+        required: true,
+      },
+      country: { type: String, required: true },
+    },
+    idDetails: {
+      idType: { type: String, required: true },
+      idNumber: { type: String, required: true },
+      idDocument: Buffer
+    },
+  }, { timestamps: true, collection: 'forms' });
 
 formSchema.set('toJSON', {
   transform: (document, returnedObject) => {

@@ -206,6 +206,7 @@ const FormStep2 = ({ formData, updateFormData }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+ 
     updateFormData({
       address: { ...formData.address, [name]: value },
     });
@@ -271,7 +272,7 @@ const FormStep2 = ({ formData, updateFormData }) => {
           Postal Code
         </label>
         <input
-          type="text"
+          type="number"
           className="form-control"
           id="postalCode"
           name="postalCode"
