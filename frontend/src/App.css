@@ -51,6 +51,11 @@ form {
   transition: opacity 0.5s ease-in-out;
 }
 
+.success-section {
+  display: flex;
+  justify-content: center;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

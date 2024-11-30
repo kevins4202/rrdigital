@@ -16,7 +16,7 @@ function App() {
   const { formData, updateFormData, resetFormData } = useContext(FormContext);
   const [step, setStep] = useState(0); // Step 0 for Start Page
   const [file, setFile] = useState(null);
-  const [showSuccess, setShowSuccess] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(true);
 
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -81,7 +81,7 @@ function App() {
   }
 
   return <>
-    <div>
+    <div className="success-section">
       {showSuccess && (
         <div className="success-message">
           Form submitted successfully!
