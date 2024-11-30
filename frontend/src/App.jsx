@@ -16,7 +16,7 @@ function App() {
   const { formData, updateFormData, resetFormData } = useContext(FormContext);
   const [step, setStep] = useState(0); // Step 0 for Start Page
   const [file, setFile] = useState(null);
-  const [showSuccess, setShowSuccess] = useState(true);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
