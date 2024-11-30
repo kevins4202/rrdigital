@@ -15,7 +15,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://fly.io/apps/backend-wispy-night-1838',
+        target: 'https://rrdigital-6g2ulpz1t-kevins4202s-projects.vercel.app/',
         changeOrigin: true,
       } 
     },

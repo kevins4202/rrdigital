@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'https://backend-wispy-night-1838.fly.dev/api/forms';
+const url = '/api/forms';
 
 const submitForm = async (formData) => {
   const uploadFormData = new FormData();
