@@ -15,7 +15,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://rrdigital-6g2ulpz1t-kevins4202s-projects.vercel.app/',
+        target: 'http://localhost:3000',
         changeOrigin: true,
       } 
     },
