@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const multer = require('multer');
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 const cors = require('cors');
 app.use(cors());
 app.use(express.json());
