@@ -5,7 +5,7 @@ const multer = require('multer');
 const PORT = process.env.PORT || 3000;
 const cors = require('cors');
 app.use(cors({
-  origin: ['https://rrdigital-aiw81dsgt-kevins4202s-projects.vercel.app'], // Replace with your frontend's domain
+  origin: ['https://rrdigital-aiw81dsgt-kevins4202s-projects.vercel.app'], 
 }));
 app.use(express.json());
 app.use(express.static('dist'));
