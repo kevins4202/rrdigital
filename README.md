@@ -17,13 +17,16 @@ RR Know Your Customer Form is a three-step form that collects personal informati
 - **axios** – HTTP client for making requests to the backend.
 - **React Bootstrap** – UI component library for responsive design.
 - **Lucide React** – Icon library for enhancing UI.
+- **Fly.io** - Deployment of backend server
 - **Vercel** – Deployment platform for hosting the application.
 
 ## Deployment
 
 ### Live Version
 The application is live and can be accessed at:  
-[RR Know Your Customer Form](https://vercel.com/kevins4202s-projects/rrdigital/25n3nsaaYcoxpJvobcotEHA6PHnP)
+[RR Know Your Customer Form](https://rr-digital.vercel.app/)\
+The backend server is deployed on Fly.io can be accessed at:\
+[Backend server](https://backend-wispy-night-1838.fly.dev/api/forms)
 
 ### Local Deployment
 
@@ -31,8 +34,8 @@ To run this project locally, follow these steps:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/rr-know-your-customer-form.git
-   cd rr-know-your-customer-form
+   git clone https://github.com/kevins4202/rrdigital.git
+   cd rrdigital
 
 2. **Install dependencies**:
    ```bash
@@ -51,8 +54,8 @@ To run this project locally, follow these steps:
 4. **Run the Backend**:
    ```bash
    npm run start
-The application will be running at `http://localhost:3001`.\
-The backend data can be accessed at `http://localhost:3001/api/forms` or in your MongoDB database.
+The application will be running at `http://localhost:3000`.\
+The backend data can be accessed at `http://localhost:3000/api/forms` or in your MongoDB database.
 
 ## License
 This project is open-source and available under the MIT License.
